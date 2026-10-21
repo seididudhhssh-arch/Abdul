@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Abdul Qawiyy | Future Entrepreneur & Music Enthusiast</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            bg: '#0a0d14',
+                            card: '#121824',
+                            border: '#1f293d',
+                            primary: '#00f0ff',  /* Electric Cyan */
+                            secondary: '#7000ff',/* Neon Purple */
+                            accent: '#ffb700',   /* Cyber Gold */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'glow': 'glow 3s infinite alternate',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 15px rgba(0, 240, 255, 0.2)' },
+                            '100%': { boxShadow: '0 0 30px rgba(112, 0, 255, 0.4)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0d14;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0d14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f293d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+
+        /* Neon Glow Utility Effects */
+        .neon-border-cyan {
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .neon-border-cyan:hover {
+            border-color: rgba(0, 240, 255, 0.8);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .neon-border-purple {
+            border: 1px solid rgba(112, 0, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .neon-border-purple:hover {
+            border-color: rgba(112, 0, 255, 0.8);
+            box-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+        }
+
+        .neon-text-cyan {
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        .neon-text-purple {
+            text-shadow: 0 0 10px rgba(112, 0, 255, 0.5);
+        }
+
+        /* Guitar String Animation Simulation */
+        .string-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.6), transparent);
+            transition: transform 0.1s ease;
+        }
+        .string-container:hover .string-line {
+            animation: vibrate 0.2s infinite;
+        }
+
+        @keyframes vibrate {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-3px); }
+            50% { transform: translateY(3px); }
+            75% { transform: translateY(-1px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-cyber-bg text-gray-200 antialiased selection:bg-cyber-primary selection:text-cyber-bg">
+
+    <!-- Navbar Sticky Floating -->
+    <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50">
+        <nav class="bg-cyber-card/80 backdrop-blur-md border border-cyber-border rounded-2xl px-6 py-4 flex justify-between items-center shadow-2xl">
+            <!-- Logo -->
+            <a href="#" class="text-xl font-extrabold tracking-wider text-white flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-cyber-primary animate-ping"></span>
+                <span>M.A.Q<span class="text-cyber-primary">.</span></span>
+            </a>
+
+            <!-- Desktop Nav Items -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-cyber-primary transition-colors">Tentang Saya</a>
+                <a href="#education" class="hover:text-cyber-primary transition-colors">Pendidikan</a>
+                <a href="#vision" class="hover:text-cyber-primary transition-colors">Visi Bisnis</a>
+                <a href="#guitar" class="hover:text-cyber-primary transition-colors">Musik & Gitar</a>
+                <a href="#skills" class="hover:text-cyber-primary transition-colors">Keahlian</a>
+            </div>
+
+            <!-- CTA Button Navbar -->
+            <div class="hidden md:block">
+                <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyber-primary to-cyber-secondary text-cyber-bg font-bold text-sm hover:opacity-90 transition-all shadow-lg hover:shadow-cyber-primary/20">
+                    Hubungi Saya
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden mt-3 bg-cyber-card/95 backdrop-blur-xl border border-cyber-border rounded-2xl p-6 flex flex-col gap-4 text-center shadow-2xl">
+            <a href="#about" class="py-2 text-gray-300 hover:text-cyber-primary border-b border-cyber-border/50">Tentang Saya</a>
+            <a href="#education" class="py-2 text-gray-300 hover:text-cyber-primary border-b border-cyber-border/50">Pendidikan</a>
+            <a href="#vision" class="py-2 text-gray-300 hover:text-cyber-primary border-b border-cyber-border/50">Visi Bisnis</a>
+            <a href="#guitar" class="py-2 text-gray-300 hover:text-cyber-primary border-b border-cyber-border/50">Musik & Gitar</a>
+            <a href="#skills" class="py-2 text-gray-300 hover:text-cyber-primary border-b border-cyber-border/50">Keahlian</a>
+            <a href="#contact" class="mt-2 py-3 rounded-xl bg-gradient-to-r from-cyber-primary to-cyber-secondary text-cyber-bg font-bold">
+                Hubungi Saya
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-32 pb-20 flex items-center justify-center relative overflow-hidden">
+        <!-- Background Ambient Glow -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyber-secondary/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Column Text -->
+            <div class="md:col-span-7 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-card border border-cyber-border mb-6">
+                    <i class="fa-solid fa-bolt text-cyber-accent"></i>
+                    <span class="text-xs uppercase tracking-widest text-gray-300 font-semibold">Selamat Datang di Portofolio Saya</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white mb-4">
+                    Halo, Saya <br>
+                    <span class="bg-gradient-to-r from-cyber-primary via-blue-400 to-cyber-secondary bg-clip-text text-transparent">
+                        MUHAMMAD ABDUL QAWIYY
+                    </span>
+                </h1>
+
+                <!-- Typing Animation Effect Placeholder -->
+                <p class="text-xl sm:text-2xl font-medium text-gray-400 mb-6 h-8">
+                    <span id="typing-text" class="text-cyber-primary font-mono border-r-2 border-cyber-primary pr-1"></span>
+                </p>
+
+                <p class="text-gray-400 leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
+                    Lulusan SMA berjiwa wirausaha tinggi yang memadukan kedisiplinan, kreativitas bermusik, dan pemikiran strategis untuk membangun masa depan bisnis yang dinamis.
+                </p>
+
+                <!-- CTA Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                    <a href="#about" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyber-primary text-cyber-bg font-bold flex items-center justify-center gap-3 hover:bg-cyber-primary/80 transition-all shadow-lg shadow-cyber-primary/20">
+                        <span>Jelajahi Profil</span>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-cyber-card border border-cyber-border text-white font-semibold flex items-center justify-center gap-3 hover:border-cyber-primary hover:text-cyber-primary transition-all">
+                        <span>Hubungi Saya</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column Visual Graphic -->
+            <div class="md:col-span-5 flex justify-center">
+                <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                    <!-- Rotating Outer Rings -->
+                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-cyber-primary/40 animate-spin" style="animation-duration: 25s;"></div>
+                    <div class="absolute inset-4 rounded-full border border-cyber-secondary/30 animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
+                    
+                    <!-- Inner Core Display Card -->
+                    <div class="absolute inset-8 rounded-3xl bg-cyber-card border border-cyber-border flex flex-col items-center justify-center p-6 text-center shadow-2xl neon-border-cyan animate-float overflow-hidden">
+                        
+                        <!-- BARIS FOTO DIBAWAH INI (Cukup ganti foto.jpg dengan nama file fotomu) -->
+                        <img src="foto.jpg" alt="Muhammad Abdul Qawiyy" class="w-full h-full object-cover rounded-2xl">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Saya Section -->
+    <section id="about" class="py-24 bg-cyber-card/30 relative border-t border-cyber-border/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-cyber-primary mb-2">Siapa Saya?</h2>
+                <h3 class="text-3xl font-extrabold text-white">Tentang Muhammad Abdul Qawiyy</h3>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <!-- Profile Narrative -->
+                <div class="md:col-span-7 bg-cyber-card border border-cyber-border rounded-3xl p-8 space-y-4">
+                    <p class="text-gray-300 leading-relaxed">
+                        Saya adalah seorang lulusan SMA dengan ambisi besar untuk menjadi seorang <strong class="text-white">Pengusaha (Entrepreneur)</strong> terkemuka. Bagi saya, keberhasilan didapat dari kombinasi disiplin, inovasi, serta keberanian mengambil peluang.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        Selain dunia bisnis, hobi utama saya adalah <strong class="text-cyber-primary">bermain gitar</strong>. Melalui musik, saya mengasah ketelitian, rasa empati, kreativitas, dan kemampuan fokus tinggi—kualitas penting yang juga sangat berguna dalam mengelola bisnis dan tim di masa depan.
+                    </p>
+                    <div class="pt-4 grid grid-cols-2 gap-4">
+                        <div class="p-4 rounded-2xl bg-cyber-bg border border-cyber-border">
+                            <i class="fa-solid fa-briefcase text-cyber-primary text-xl mb-2"></i>
+                            <h4 class="text-white font-bold text-sm">Fokus Karir</h4>
+                            <p class="text-xs text-gray-400 mt-1">Pengusaha & Bisnis Kreatif</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-cyber-bg border border-cyber-border">
+                            <i class="fa-solid fa-music text-cyber-secondary text-xl mb-2"></i>
+                            <h4 class="text-white font-bold text-sm">Passion & Hobi</h4>
+                            <p class="text-xs text-gray-400 mt-1">Gitaris & Aransemen Musik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight Cards / Core Values -->
+                <div class="md:col-span-5 grid gap-4">
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 neon-border-cyan">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-cyber-primary/10 text-cyber-primary text-2xl">
+                                <i class="fa-solid fa-user-ninja"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Kepemimpinan (Leadership)</h4>
+                                <p class="text-xs text-gray-400 mt-1">Siap memimpin ide-ide baru dengan visi yang mantap dan aksi nyata.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 neon-border-purple">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-cyber-secondary/10 text-cyber-secondary text-2xl">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Kreativitas Asli</h4>
+                                <p class="text-xs text-gray-400 mt-1">Menuangkan improvisasi musik ke dalam penyelesaian masalah bisnis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-cyber-accent/10 text-cyber-accent text-2xl">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Resiliensi & Ketahanan</h4>
+                                <p class="text-xs text-gray-400 mt-1">Pantang menyerah dalam belajar, mencoba, dan terus bertumbuh.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pendidikan & Perjalanan Section -->
+    <section id="education" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-cyber-secondary mb-2">Jejak Langkah</h2>
+                <h3 class="text-3xl font-extrabold text-white">Pendidikan & Pengembangan Diri</h3>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyber-secondary to-cyber-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Vertical Timeline -->
+            <div class="relative border-l-2 border-cyber-border max-w-3xl mx-auto pl-6 md:pl-8 space-y-12">
+
+                <!-- Timeline Item 1 -->
+                <div class="relative group">
+                    <!-- Dot Marker -->
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-cyber-primary border-4 border-cyber-bg group-hover:scale-125 transition-transform"></div>
+                    
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 transition-all hover:border-cyber-primary">
+                        <span class="text-xs font-bold text-cyber-primary uppercase tracking-wider">Pendidikan Formal</span>
+                        <h4 class="text-xl font-bold text-white mt-1">Lulusan Sekolah Menengah Atas (SMA)</h4>
+                        <p class="text-xs text-gray-400 mb-3">Fondasi Pengetahuan & Karakter</p>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Menyelesaikan pendidikan SMA dengan melatih pola pikir kritis, interaksi sosial, serta keaktifan dalam kegiatan organisasi dan minat bakat seni musik.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-cyber-secondary border-4 border-cyber-bg group-hover:scale-125 transition-transform"></div>
+                    
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 transition-all hover:border-cyber-secondary">
+                        <span class="text-xs font-bold text-cyber-secondary uppercase tracking-wider">Pengembangan Mandiri</span>
+                        <h4 class="text-xl font-bold text-white mt-1">Studi Dasar Manajemen Bisnis & Keuangan</h4>
+                        <p class="text-xs text-gray-400 mb-3">Autodidaktik & Pembelajaran Otodidak</p>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Mempelajari dasar-dasar riset pasar, strategi pemasaran digital, literasi keuangan dasar, dan cara membangun model bisnis berskala kecil.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-cyber-accent border-4 border-cyber-bg group-hover:scale-125 transition-transform"></div>
+                    
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 transition-all hover:border-cyber-accent">
+                        <span class="text-xs font-bold text-cyber-accent uppercase tracking-wider">Pengembangan Seni</span>
+                        <h4 class="text-xl font-bold text-white mt-1">Eksplorasi Teknik Gitar & Musikalitas</h4>
+                        <p class="text-xs text-gray-400 mb-3">Latihan Konsisten & Kreativitas</p>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            Mengasah teknik instrumen gitar secara konsisten, memahami teori musik dasar, dan melatih disiplin diri melalui jam latihan yang teratur.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Minat & Visi Bisnis (Business Vision) -->
+    <section id="vision" class="py-24 bg-cyber-card/30 border-t border-cyber-border/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-cyber-primary mb-2">Impian Masa Depan</h2>
+                <h3 class="text-3xl font-extrabold text-white">Cita-Cita: Pengusaha / Entrepreneur</h3>
+                <p class="text-gray-400 text-sm mt-3">Rencana dan konsep proyek wirausaha masa depan yang ingin diwujudkan.</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Concept Card 1 -->
+                <div class="bg-cyber-card border border-cyber-border rounded-3xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 neon-border-cyan">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-cyber-primary/10 text-cyber-primary flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Bisnis E-Commerce & Retail</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                            Membangun brand produk lokal terpercaya yang memanfaatkan platform digital untuk jangkauan pasar yang luas.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-cyber-border flex items-center justify-between text-xs text-cyber-primary font-semibold">
+                        <span>Fokus: Digital Scale</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Concept Card 2 -->
+                <div class="bg-cyber-card border border-cyber-border rounded-3xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300 neon-border-purple">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-cyber-secondary/10 text-cyber-secondary flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-record-vinyl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Industri Kreatif & Musik</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                            Menggabungkan passion gitar dengan potensi usaha seperti studio musik modern, aksesoris instrumen, atau merchandise.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-cyber-border flex items-center justify-between text-xs text-cyber-secondary font-semibold">
+                        <span>Fokus: Passion & Culture</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Concept Card 3 -->
+                <div class="bg-cyber-card border border-cyber-border rounded-3xl p-6 flex flex-col justify-between hover:-translate-y-2 transition-transform duration-300">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-cyber-accent/10 text-cyber-accent flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Inovasi Layanan Jasa</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                            Menyediakan solusi kreatif berbasis kebutuhan masyarakat modern dengan mengedepankan pelayanan berkualitas tinggi.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-cyber-border flex items-center justify-between text-xs text-cyber-accent font-semibold">
+                        <span>Fokus: Problem Solving</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobi Bermain Gitar (Interactive Music Corner) -->
+    <section id="guitar" class="py-24 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Intro -->
+                <div class="lg:col-span-5">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-secondary/20 border border-cyber-secondary/40 text-cyber-secondary text-xs font-bold mb-4">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>PASSION CORNER</span>
+                    </div>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">
+                        Dunia Nada & Senar Gitar
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Bermain gitar bukan sekadar hobi bagi saya, melainkan tempat mengasah fokus, mengekspresikan emosi, dan melatih ketekunan. Setiap nada mengajarkan harmoni—hal yang sama yang dibutuhkan saat memimpin bisnis.
+                    </p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3 text-sm text-gray-300">
+                            <i class="fa-solid fa-circle-check text-cyber-primary"></i>
+                            <span>Gaya Bermain: Acoustic Fingerstyle & Electric Riffs</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-300">
+                            <i class="fa-solid fa-circle-check text-cyber-primary"></i>
+                            <span>Latihan Rutin: Mengolah Improvisasi & Harmoni</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Interactive Guitar Simulation / Player Visual -->
+                <div class="lg:col-span-7 bg-cyber-card border border-cyber-border rounded-3xl p-8 shadow-2xl relative">
+                    <div class="flex items-center justify-between mb-8 pb-4 border-b border-cyber-border">
+                        <div class="flex items-center gap-3">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <span class="text-xs text-gray-400 font-mono ml-2">Guitar_Sound_Simulator.exe</span>
+                        </div>
+                        <span class="text-xs text-cyber-primary font-mono" id="string-status">Klik senar di bawah!</span>
+                    </div>
+
+                    <!-- Interactive Guitar Strings -->
+                    <div class="space-y-6 py-4">
+                        <!-- String 1 -->
+                        <div class="string-container cursor-pointer p-2 rounded-lg hover:bg-cyber-bg/50 transition-colors" onclick="playChord('E High (Senar 1)', 330)">
+                            <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono">
+                                <span>Senar 1 - E (High)</span>
+                                <span>330 Hz</span>
+                            </div>
+                            <div class="string-line w-full"></div>
+                        </div>
+
+                        <!-- String 2 -->
+                        <div class="string-container cursor-pointer p-2 rounded-lg hover:bg-cyber-bg/50 transition-colors" onclick="playChord('B (Senar 2)', 246)">
+                            <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono">
+                                <span>Senar 2 - B</span>
+                                <span>246 Hz</span>
+                            </div>
+                            <div class="string-line w-full" style="height: 2.5px;"></div>
+                        </div>
+
+                        <!-- String 3 -->
+                        <div class="string-container cursor-pointer p-2 rounded-lg hover:bg-cyber-bg/50 transition-colors" onclick="playChord('G (Senar 3)', 196)">
+                            <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono">
+                                <span>Senar 3 - G</span>
+                                <span>196 Hz</span>
+                            </div>
+                            <div class="string-line w-full" style="height: 3px;"></div>
+                        </div>
+
+                        <!-- String 4 -->
+                        <div class="string-container cursor-pointer p-2 rounded-lg hover:bg-cyber-bg/50 transition-colors" onclick="playChord('D (Senar 4)', 146)">
+                            <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono">
+                                <span>Senar 4 - D</span>
+                                <span>146 Hz</span>
+                            </div>
+                            <div class="string-line w-full" style="height: 3.5px;"></div>
+                        </div>
+
+                        <!-- String 5 -->
+                        <div class="string-container cursor-pointer p-2 rounded-lg hover:bg-cyber-bg/50 transition-colors" onclick="playChord('A (Senar 5)', 110)">
+                            <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono">
+                                <span>Senar 5 - A</span>
+                                <span>110 Hz</span>
+                            </div>
+                            <div class="string-line w-full" style="height: 4px;"></div>
+                        </div>
+
+                        <!-- String 6 -->
+                        <div class="string-container cursor-pointer p-2 rounded-lg hover:bg-cyber-bg/50 transition-colors" onclick="playChord('E Low (Senar 6)', 82)">
+                            <div class="flex justify-between text-xs text-gray-400 mb-1 font-mono">
+                                <span>Senar 6 - E (Low)</span>
+                                <span>82 Hz</span>
+                            </div>
+                            <div class="string-line w-full" style="height: 4.5px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Controls -->
+                    <div class="mt-6 pt-4 border-t border-cyber-border flex items-center justify-between text-xs text-gray-400">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-volume-high text-cyber-primary"></i>
+                            <span>Klik senar untuk mendengar sampel nada synth</span>
+                        </div>
+                        <button onclick="playStrumEffect()" class="px-3 py-1.5 rounded-lg bg-cyber-primary/20 text-cyber-primary font-bold hover:bg-cyber-primary hover:text-cyber-bg transition-all">
+                            <i class="fa-solid fa-play mr-1"></i> Struming
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Keahlian & Soft Skills -->
+    <section id="skills" class="py-24 bg-cyber-card/30 border-t border-cyber-border/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-cyber-primary mb-2">Potensi & Kemampuan</h2>
+                <h3 class="text-3xl font-extrabold text-white">Keahlian Utama</h3>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Entrepreneurial Skills -->
+                <div class="bg-cyber-card border border-cyber-border rounded-3xl p-8">
+                    <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-chart-pie text-cyber-primary"></i>
+                        <span>Soft Skills Kewirausahaan</span>
+                    </h4>
+
+                    <div class="space-y-5">
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-300">Kepemimpinan (Leadership)</span>
+                                <span class="text-cyber-primary">85%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-cyber-bg rounded-full overflow-hidden border border-cyber-border">
+                                <div class="h-full bg-cyber-primary rounded-full" style="width: 85%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-300">Pemecahan Masalah (Problem Solving)</span>
+                                <span class="text-cyber-primary">90%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-cyber-bg rounded-full overflow-hidden border border-cyber-border">
+                                <div class="h-full bg-cyber-primary rounded-full" style="width: 90%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-300">Berpikir Strategis (Strategic Thinking)</span>
+                                <span class="text-cyber-primary">80%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-cyber-bg rounded-full overflow-hidden border border-cyber-border">
+                                <div class="h-full bg-cyber-primary rounded-full" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Musical & Creative Skills -->
+                <div class="bg-cyber-card border border-cyber-border rounded-3xl p-8">
+                    <h4 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-sliders text-cyber-secondary"></i>
+                        <span>Kreativitas & Seni</span>
+                    </h4>
+
+                    <div class="space-y-5">
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-300">Teknik Bermain Gitar</span>
+                                <span class="text-cyber-secondary">88%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-cyber-bg rounded-full overflow-hidden border border-cyber-border">
+                                <div class="h-full bg-cyber-secondary rounded-full" style="width: 88%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-300">Kreativitas & Improvisasi</span>
+                                <span class="text-cyber-secondary">92%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-cyber-bg rounded-full overflow-hidden border border-cyber-border">
+                                <div class="h-full bg-cyber-secondary rounded-full" style="width: 92%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span class="text-gray-300">Komunikasi & Kolaborasi Tim</span>
+                                <span class="text-cyber-secondary">85%</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-cyber-bg rounded-full overflow-hidden border border-cyber-border">
+                                <div class="h-full bg-cyber-secondary rounded-full" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak (Contact Section) -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-cyber-primary mb-2">Mari Terhubung</h2>
+                <h3 class="text-3xl font-extrabold text-white">Hubungi Saya</h3>
+                <p class="text-gray-400 text-sm mt-2">Terbuka untuk kolaborasi bisnis, diskusi ide, atau sekadar berbagi mengenai musik.</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyber-primary to-cyber-secondary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Info Contact -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 flex items-center gap-5">
+                        <div class="w-12 h-12 rounded-xl bg-cyber-primary/10 text-cyber-primary flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Email Utama</p>
+                            <p class="text-sm font-bold text-white mt-0.5">abdulqawiyy@example.com</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6 flex items-center gap-5">
+                        <div class="w-12 h-12 rounded-xl bg-cyber-secondary/10 text-cyber-secondary flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Lokasi</p>
+                            <p class="text-sm font-bold text-white mt-0.5">Indonesia</p>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="bg-cyber-card border border-cyber-border rounded-2xl p-6">
+                        <p class="text-xs text-gray-400 mb-4">Media Sosial & Portofolio Karya</p>
+                        <div class="flex items-center gap-4">
+                            <a href="#" class="w-10 h-10 rounded-xl bg-cyber-bg border border-cyber-border flex items-center justify-center text-gray-300 hover:text-cyber-primary hover:border-cyber-primary transition-all">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-cyber-bg border border-cyber-border flex items-center justify-center text-gray-300 hover:text-cyber-primary hover:border-cyber-primary transition-all">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-cyber-bg border border-cyber-border flex items-center justify-center text-gray-300 hover:text-cyber-primary hover:border-cyber-primary transition-all">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-xl bg-cyber-bg border border-cyber-border flex items-center justify-center text-gray-300 hover:text-cyber-primary hover:border-cyber-primary transition-all">
+                                <i class="fa-brands fa-soundcloud"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Contact -->
+                <div class="lg:col-span-7 bg-cyber-card border border-cyber-border rounded-3xl p-8 relative">
+                    <!-- Notification Box -->
+                    <div id="form-message" class="hidden mb-6 p-4 rounded-xl text-sm font-semibold"></div>
+
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 mb-2">NAMA LENGKAP</label>
+                                <input type="text" required placeholder="Masukkan nama Anda" class="w-full bg-cyber-bg border border-cyber-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyber-primary transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 mb-2">EMAIL</label>
+                                <input type="email" required placeholder="nama@email.com" class="w-full bg-cyber-bg border border-cyber-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyber-primary transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-2">SUBJEK PESAN</label>
+                            <input type="text" required placeholder="Subjek diskusi atau kolaborasi" class="w-full bg-cyber-bg border border-cyber-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyber-primary transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-2">PESAN</label>
+                            <textarea rows="4" required placeholder="Tuliskan pesan Anda di sini..." class="w-full bg-cyber-bg border border-cyber-border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyber-primary transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyber-primary to-cyber-secondary text-cyber-bg font-extrabold text-sm hover:opacity-90 transition-all shadow-lg hover:shadow-cyber-primary/20 flex items-center justify-center gap-2">
+                            <span>KIRIM PESAN SEKARANG</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-cyber-border/50 bg-cyber-card/50 text-center text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Muhammad Abdul Qawiyy. All rights reserved.</p>
+            <p class="flex items-center gap-1">
+                <span>Dibuat dengan semangat</span>
+                <i class="fa-solid fa-guitar text-cyber-primary"></i>
+                <span>& Visi Masa Depan</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Menu Toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking nav items
+        const mobileNavLinks = mobileMenu.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Typing effect algorithm
+        const words = ["Future Entrepreneur", "Guitar Player", "Visionary Leader"];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+
+        function type() {
+            if (count === words.length) {
+                count = 0;
+            }
+            currentText = words[count];
+            letter = currentText.slice(0, ++index);
+
+            const typingElement = document.getElementById("typing-text");
+            if (typingElement) {
+                typingElement.textContent = letter;
+            }
+
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000);
+            } else {
+                setTimeout(type, 100);
+            }
+        }
+
+        window.onload = function() {
+            type();
+        };
+
+        // Web Audio API Audio Synthesizer for Interactive Guitar String Simulation
+        let audioCtx = null;
+
+        function playChord(stringName, freq) {
+            document.getElementById('string-status').innerText = `Memainkan: ${stringName}`;
+            
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+
+                osc.type = 'triangle'; // Sound wave approximation
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start();
+                osc.stop(audioCtx.currentTime + 1.2);
+            } catch(e) {
+                console.log("Audio Web API unsupported or blocked.");
+            }
+        }
+
+        function playStrumEffect() {
+            const freqs = [82, 110, 146, 196, 246, 330];
+            freqs.forEach((freq, idx) => {
+                setTimeout(() => {
+                    playChord(`Strum Senar ${idx + 1}`, freq);
+                }, idx * 80);
+            });
+        }
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const msgBox = document.getElementById('form-message');
+            msgBox.className = "mb-6 p-4 rounded-xl text-sm font-semibold bg-cyber-primary/20 border border-cyber-primary text-cyber-primary block";
+            msgBox.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Terima kasih! Pesan Anda telah berhasil terkirim kepada Muhammad Abdul Qawiyy.";
+            document.getElementById('contact-form').reset();
+        }
+    </script>
+</body>
+</html>
